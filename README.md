@@ -9,6 +9,3 @@ This app will handle new customer bank account requests.
 
 ## Built With
 *   Java SE 11
-
-## Contributors
-Austin Mancini - *Initial work* - http://amancini.dev/

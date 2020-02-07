@@ -2,8 +2,8 @@ public class Checking extends Account {
     // ***CHILD Class*** //
 
     // List properties specific to a checking account
-    int debitCardNumber;
-    int debitCardPIN;
+    private int debitCardNumber;
+    private int debitCardPIN;
 
     // Constructor to initialize checking account properties
     public Checking(String name, String sSN, double initDeposit) {
@@ -12,7 +12,7 @@ public class Checking extends Account {
         setDebitCard();
     }
 
-    // Super class setRate implmentation
+    // Super class setRate implementation
     @Override
     public void setRate() {
         rate = getBaseRate() * .15;

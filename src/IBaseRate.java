@@ -1,7 +1,8 @@
 public interface IBaseRate {
     // ******API******* //
 
-    // Write a method that returns the base rate
+    // A method that returns the base rate
+    @SuppressWarnings("SameReturnValue")
     default double getBaseRate() {
         return 2.5;
     }

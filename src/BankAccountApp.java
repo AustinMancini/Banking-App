@@ -1,17 +1,38 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public class BankAccountApp {
     public static void main(String[] args) {
 
-        Checking chkacc1 = new Checking("John Smith", "123456789", 1500);
+        // Accounts data structure
+        List<Account> accounts = new LinkedList<>();
 
-        Savings savacc1 = new Savings("Tom White", "098765432", 2500);
-
-        savacc1.showInfo();
-        System.out.println("***************");
-        chkacc1.showInfo();
-
-        savacc1.deposit(5000);
-        savacc1.withDraw(200);
-        savacc1.transfer("Brokerage", 3000);
         // Read a CSV File and create new accounts based on the data
+        String file = "/Users/Austin/IdeaProjects/NewBankAccounts.csv";
+        List<String[]> newAccountHolder = utilities.CSV.read(file);
+
+        for (String[] accountHolder : newAccountHolder) {
+            String name = accountHolder[0];
+            String sSN = accountHolder[1];
+            String accountType = accountHolder[2];
+            double initDeposit = Double.parseDouble(accountHolder[3]);
+
+            if (accountType.equals("Savings")) {
+                accounts.add(new Savings(name, sSN, initDeposit));
+            } else if (accountType.equals("Checking")) {
+                accounts.add(new Checking(name, sSN, initDeposit));
+            } else {
+                System.out.println("ERROR READING ACCOUNT TYPE");
+            }
+        }
+
+        // Iterate through accounts data structure
+        for (Account acc : accounts) {
+            System.out.println("\n***********");
+            acc.showInfo();
+        }
+
+        // **Ex. If you wanted to get a single element**
+        // accounts.get(5).showInfo();
     }
 }
